@@ -1,4 +1,5 @@
 import java.util.*;
+import java.security.*;
 
 public class AtmController {
 
@@ -11,7 +12,7 @@ int max=999999999;
 Scanner take = new Scanner(System.in);
 //assigns take to class Scanner
 
-Random rand = new Random();
+SecureRandom rand = new SecureRandom();
 //assigns rand to class Random
 
 Atm def = new Atm ("Good Nigerian Citezen", 10000.000);
@@ -48,7 +49,7 @@ def.setBalance(1000);
 
 int withdraw=take.nextInt();
 
-if (withdraw<=1000)
+if (withdraw<=1000 && withdraw>0)
 {
 double remBal=def.getbalance()-withdraw;
 
@@ -56,7 +57,7 @@ System.out.printf("Dear %s your balance is %f", def.getname(),remBal);
 
 System.out.print("\nThank you for banking with us");
 }
-else {System.out.println("Insufficient balance");}
+else {System.out.println("It's either you have an Insufficient balance or you entered an invalid number ");}
 
 
 }
